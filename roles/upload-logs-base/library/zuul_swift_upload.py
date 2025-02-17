@@ -105,6 +105,8 @@ class Uploader():
         # We retry here because sometimes we get HTTP 401 errors in rax.
         # They seem to happen infrequently (on the order of once a day across
         # all jobs) so a retry is likely to work.
+        print("XXX: self.container: %s" % str(self.container))
+        print("XXX: self.cloud: %s" % str(self.cloud))
         container = retry_function(
             lambda: self.cloud.get_container(self.container))
         if not container:
